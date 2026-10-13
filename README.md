@@ -1,17 +1,38 @@
-# arvex
+# Arvex
 
-A new Flutter project.
+Arvex — локальный офлайн-плеер для Android с тёмной премиум-стилистикой, библиотекой музыкальных файлов, очередью и базовым управлением воспроизведением.
 
-## Getting Started
+## Что реализовано
 
-This project is a starting point for a Flutter application.
+- тёмная тема и UI shell
+- splash и onboarding
+- главная страница и библиотека музыки
+- плейлисты и очередь воспроизведения
+- мини-плеер и полноэкранный плеер
+- эквалайзер, таймер сна, импорт и редактор метаданных
+- базовый слой Riverpod и сервис just_audio
 
-A few resources to get you started if this is your first Flutter project:
+## Технологии
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Flutter
+- Dart
+- Riverpod
+- Go Router
+- just_audio
+- audio_service
+- file_picker / permission_handler
+- Drift / sqlite3_flutter_libs
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Запуск
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Проверка
+
+```bash
+flutter analyze
+flutter test
+```
