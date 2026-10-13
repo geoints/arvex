@@ -78,12 +78,12 @@ class ImportService {
   }
 
   Future<List<String>> pickAudioFiles() async {
-    final files = await FilePicker.pickFiles(
+    final result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: supportedExtensions.toList(),
     );
 
-    final paths = files
+    final paths = result
         .map((file) => file.path)
         .whereType<String>()
         .where((path) => path.trim().isNotEmpty)

@@ -2,9 +2,11 @@ import 'dart:io';
 
 import 'package:just_audio/just_audio.dart';
 
-/// Обёртка вокруг just_audio для централизованного управления плеером.
+/// Shared audio engine used by the UI, background service and Android media controls.
 class AudioPlayerService {
-  AudioPlayerService() : _player = AudioPlayer();
+  AudioPlayerService._() : _player = AudioPlayer();
+
+  static final AudioPlayerService instance = AudioPlayerService._();
 
   final AudioPlayer _player;
 

@@ -13,14 +13,12 @@ class PermissionService {
 
     final audioStatus = await Permission.audio.request();
     final notificationStatus = await Permission.notification.request();
-
-    if (audioStatus.isGranted && notificationStatus.isGranted) {
-      return true;
-    }
-
     final storageStatus = await Permission.storage.request();
-    return audioStatus.isGranted &&
-        (notificationStatus.isGranted || notificationStatus.isDenied) &&
-        storageStatus.isGranted;
+
+    final hasAudioAccess = audioStatus.isGranted || audioStatus.isLimited;
+    final hasNotificationAccess = notificationStatus.isGranted;
+    final hasStorageAccess = storageStatus.isGranted || storageStatus.isLimited;
+
+    return hasAudioAccess && hasNotificationAccess && hasStorageAccess;
   }
 }

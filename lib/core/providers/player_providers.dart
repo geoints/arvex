@@ -82,7 +82,7 @@ class LibraryController extends Notifier<List<Track>> {
       return;
     }
 
-    state = _demoTracks;
+    state = const <Track>[];
   }
 
   Future<void> addTracks(List<Track> tracks) async {
@@ -99,7 +99,7 @@ class LibraryController extends Notifier<List<Track>> {
 }
 
 class PlayerController extends Notifier<PlayerState> {
-  PlayerController() : _service = AudioPlayerService();
+  PlayerController() : _service = AudioPlayerService.instance;
 
   final AudioPlayerService _service;
   StreamSubscription<Duration>? _positionSub;
@@ -136,7 +136,7 @@ class PlayerController extends Notifier<PlayerState> {
     });
 
     return const PlayerState(
-      queue: _demoTracks,
+      queue: <Track>[],
       currentIndex: 0,
       isPlaying: false,
       position: Duration.zero,
@@ -314,45 +314,3 @@ class PlayerController extends Notifier<PlayerState> {
     } catch (_) {}
   }
 }
-
-const List<Track> _demoTracks = [
-  Track(
-    id: '1',
-    title: 'Midnight Echo',
-    artist: 'Aster Vale',
-    album: 'Night Signals',
-    genre: 'Electronic',
-    year: 2024,
-    trackNumber: 1,
-    duration: Duration(minutes: 0, seconds: 17),
-    dateAdded: null,
-    fileHash: 'hash1',
-    path: 'assets/audio/midnight_echo.wav',
-  ),
-  Track(
-    id: '2',
-    title: 'Velvet Static',
-    artist: 'Mira Sloane',
-    album: 'Glass City',
-    genre: 'Ambient',
-    year: 2023,
-    trackNumber: 2,
-    duration: Duration(minutes: 0, seconds: 16),
-    dateAdded: null,
-    fileHash: 'hash2',
-    path: 'assets/audio/velvet_static.wav',
-  ),
-  Track(
-    id: '3',
-    title: 'Black Thread',
-    artist: 'Night Parade',
-    album: 'Wired Bloom',
-    genre: 'Indie',
-    year: 2025,
-    trackNumber: 3,
-    duration: Duration(minutes: 0, seconds: 18),
-    dateAdded: null,
-    fileHash: 'hash3',
-    path: 'assets/audio/black_thread.wav',
-  ),
-];

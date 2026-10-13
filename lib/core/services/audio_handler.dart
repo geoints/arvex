@@ -2,9 +2,9 @@ import 'package:audio_service/audio_service.dart';
 
 import 'audio_player_service.dart';
 
-/// Обёртка для audio_service и Android foreground playback.
+/// Shared background/Android media handler backed by the single app audio service.
 class ArvexAudioHandler extends BaseAudioHandler {
-  ArvexAudioHandler() : playerService = AudioPlayerService();
+  ArvexAudioHandler() : playerService = AudioPlayerService.instance;
 
   final AudioPlayerService playerService;
 
